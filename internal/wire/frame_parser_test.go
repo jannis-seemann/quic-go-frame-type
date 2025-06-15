@@ -455,6 +455,8 @@ func evaluateFrames(tb testing.TB, parser *FrameParser, buf []byte, frames ...Fr
 				frame.FinalSize != resetStreamFrame.FinalSize {
 				tb.Fatalf("RESET_STREAM frame does not match: %v vs %v", frame, resetStreamFrame)
 			}
+		case *PingFrame:
+			
 		default:
 			tb.Fatalf("Frame type not supported in benchmark or should not occur: %v", frame)
 		}
