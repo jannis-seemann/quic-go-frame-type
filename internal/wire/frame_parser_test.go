@@ -293,6 +293,7 @@ func TestFrameParserDatagramFrame(t *testing.T) {
 	// ParseDatagramFrame should be used for this type
 	datagramFrame, l, err := parser.ParseDatagramFrame(frameType, b[l:], protocol.Version1)
 	require.NoError(t, err)
+	require.Equal(t, 6, l)
 	require.IsType(t, &DatagramFrame{}, datagramFrame)
 	require.Equal(t, f.Data, datagramFrame.Data)
 }
